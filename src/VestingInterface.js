@@ -4,7 +4,6 @@ import moment from 'moment';
 import {
   getVestingContract,
   getTokenContract,
-  getVestingFactoryContract,
   encodeReleaseTokens,
 } from './contract';
 import { abbreviateAddress, formatTokenNum } from './utils';
@@ -34,25 +33,21 @@ function VestingInterface({ provider, network , vestingContractAddress }) {
   const [vestingState, setVestingState] = useState({});
   const [isClaiming, setIsClaiming] = useState(false);
 
-  console.log('VestingInterface', network)
-
   useEffect(() => {
-    let SUPPORTED_NETWORK_ID = [1];
+    let SUPPORTED_NETWORK_ID = [42];
     if (SUPPORTED_NETWORK_ID.includes(network) && provider.length>0) {
       console.log(`Getting data`)
       // getData();
       };
-  }, []);
+  }, [network, provider]);
 
   const getData = async () => {
     const signer = await getSigner();
     // VestingAddress
     const vestingContract = await getVestingContract(signer, vestingContractAddress);
-    console.log('SIGNER', signer, vestingContract)
-    
+
     //TokenAddress
     const tokenContract = await getTokenContract(signer, TOKEN_CONTRACT_ADDRESS);      
-    console.log('tokenContract', tokenContract)
     const symbol = await tokenContract.symbol();
     const start = (await vestingContract.getStart()).toNumber();
     const duration = (await vestingContract.getDuration()).toNumber();
@@ -105,16 +100,13 @@ function VestingInterface({ provider, network , vestingContractAddress }) {
   };
 
   return (
-    vestingState.total === 0? 
-    (
+    vestingState.total === 0? (
       <Container height="100vh">
         <Center>
-          {`Vesting has not started yet. The vesting start date is ${moment(
-                    (vestingState.start) * 1000
-                  ).format('YYYY/MM/DD HH:mm')}. The ${vestingState.symbol} tokens will appear here soon.`}
+          {`Vesting has not started yet. The vesting start date is ${moment((vestingState.start) * 1000).format('YYYY/MM/DD HH:mm')}. The ${vestingState.symbol} tokens will appear here soon.`}
         </Center>
       </Container>
-    ):
+    ) :
     <Box>
       <br/>
       <Heading size="md" mb={5}>

@@ -60,7 +60,7 @@ async function switchNetwork(chainId) {
 function connectWallet() {
   try {
     if (window.ethereum.isMetaMask) {
-      console.log("Connecting to wallet - (Metamask has already installed)", window.ethereum.isMetaMask)
+      // console.log("Connecting to wallet - (Metamask has already installed)", window.ethereum.isMetaMask)
       let resp = window.ethereum.request({
         method: "eth_requestAccounts",
         params: [{ eth_accounts: {} }],

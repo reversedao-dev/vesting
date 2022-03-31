@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     if (provider) {
-      let SUPPORTED_NETWORK_ID = [1];
+      let SUPPORTED_NETWORK_ID = [42];
       const supportedChainId = SUPPORTED_NETWORK_ID.indexOf(network) === -1; //If network not match
       if (supportedChainId) {
         setIsError({
@@ -39,12 +39,12 @@ function App() {
   }, [provider, network]);
 
   useEffect(() => {
-    let SUPPORTED_NETWORK_ID = [1];
+    let SUPPORTED_NETWORK_ID = [42];
     if (SUPPORTED_NETWORK_ID.includes(network) && provider.length>0) {
         console.log('getting address')
         getAddress(provider);
     }
-  }, []);
+  }, [provider, network]);
 
   const getAddress = async (currentSignerAddress) => {
     // FactoryContractAddress
