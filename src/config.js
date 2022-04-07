@@ -1,10 +1,7 @@
-export const FACTORY_CONTRACT_ADDRESS =  "0x2Be472d6F4380Ef675B7a1e7D6f113b34D10B8a7" || process.env.REACT_APP_FACTORY_CONTRACT_ADDRESS
+export const FACTORY_CONTRACT_ADDRESS = "0x6C86108095e0C9c0824C7FEE30c396E9F06a61Ca" || process.env.REACT_APP_FACTORY_CONTRACT_ADDRESS;
 
-export const TOKEN_CONTRACT_ADDRESS = '0x5898BB2c8E2BC175053Bd23083baad911E84afc1' || process.env.REACT_APP_TOKEN_CONTRACT_ADDRESS;
+export const TOKEN_CONTRACT_ADDRESS = '0x7C73F066aB9683BEF16B2b6B5d509f2Bce6A20FF' || process.env.REACT_APP_TOKEN_CONTRACT_ADDRESS;
 
-export const EXPLORER_URL = process.env.REACT_APP_EXPLORER_URL || 'https://kovan.etherscan.io/';
+export const EXPLORER_URL = 'https://testnet.bscscan.com' || process.env.REACT_APP_EXPLORER_URL;
 
-export const REQUIRED_CHAIN_ID = process.env.REACT_APP_REQUIRED_CHAIN_ID || '0x2a' 
-
-//Eetherscan  0x1   'https://etherscan.io/' 
-//Kovan       0x2a  'https://kovan.etherscan.io/'   
+export const REQUIRED_CHAIN_ID = '0x61' || process.env.REACT_APP_REQUIRED_CHAIN_ID;

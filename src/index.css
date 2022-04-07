@@ -26,3 +26,21 @@ code {
   font-weight: 500;
   color: #fc6058;
 }
+
+.css-98urqk {
+
+  margin-bottom: 15px !important;
+}
+
+.css-1jrtelv {
+  height: 100%;
+  border-radius: 20px;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-slow);
+  background-color: var(--chakra-colors-green-500) !important;
+}
+
+.css-1ilyui9{
+  display: flex !important; 
+  justify-content: center !important;
+}

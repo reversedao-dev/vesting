@@ -24,7 +24,7 @@ async function getChainId() {
   const eth = await initEtherProvider();
   if (!eth) return null;
   let currentNetworkId = await eth.getNetwork();
-  console.log("Getting chainId", currentNetworkId);
+  // console.log("Getting chainId", currentNetworkId);
   return currentNetworkId;
 }
 
@@ -73,6 +73,7 @@ function connectWallet() {
     console.log("Error in connecting wallet", err);
   }
 }
+
 
 function installMetamask() {
   if (typeof window.ethereum !== undefined || !window.ethereum.isMetaMask) {

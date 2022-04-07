@@ -1,9 +1,9 @@
 import { ethers } from 'ethers';
 
-export function formatTokenNum(x, symbol) {
-  if (!x) return 'loading...';
+export function formatTokenNum(vestedAmount, symbol) {
+  if (!vestedAmount) return 'N/A';
   return (
-    parseFloat(ethers.utils.formatEther(x.toString(), 'ether')).toLocaleString(
+    parseFloat(ethers.utils.formatEther(vestedAmount.toString(), 'ether')).toLocaleString(
       'en-US',
       {
         minimumFractionDigits: 2,
