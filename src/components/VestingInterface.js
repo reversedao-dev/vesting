@@ -4,7 +4,6 @@ import moment from 'moment';
 import {
   getVestingContract,
   getTokenContract,
-  encodeReleaseTokens,
 } from '../contract';
 import { abbreviateAddress, formatTokenNum } from '../utils';
 import { TOKEN_CONTRACT_ADDRESS, EXPLORER_URL } from '../config';
@@ -24,7 +23,6 @@ import {
   Text,
   Link,
 } from '@chakra-ui/react';
-// import { FACTORY_CONTRACT_ADDRESS } from "../config";
 import ERCUtils from "../utils/Web3Context/erc.utils";
 import MetamaskLoadingScreen from "../components/MetamaskLoadingScreen";
 
@@ -84,7 +82,7 @@ function VestingInterface({ provider, network , vestingContractAddress, compoBuf
       const signer = await getSigner();
       const tokenVestingContract = await getVestingContract(signer, vestingContractAddress);
       const releaseResult = await tokenVestingContract.release(TOKEN_CONTRACT_ADDRESS);
-      console.log(releaseResult)
+      console.log({releaseResult})
       setIsClaiming(false);
     }catch(err){
       console.log("Error in claiming tokens", err)
@@ -241,7 +239,8 @@ function VestingInterface({ provider, network , vestingContractAddress, compoBuf
                   onClick={claimTokens}
                   colorScheme="green"
                   ml={5}
-                  isDisabled={isClaiming || (vestingState?.releasable?.toNumber()) === 0}
+                  isDisabled={isClaiming}
+                  // isDisabled={isClaiming || (vestingState?.releasable?.toNumber()) === 0}
                 >
                   Claim
                 </Button>
