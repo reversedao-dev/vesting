@@ -19,16 +19,15 @@ code {
 
 .message-color-error{
   font-weight: 500;
-  color: #33d68a;
+  color: #fc6058;
 }
 
 .message-color-success{
   font-weight: 500;
-  color: #fc6058;
+  color:#33d68a;
 }
 
 .css-98urqk {
-
   margin-bottom: 15px !important;
 }
 
@@ -44,3 +43,22 @@ code {
   display: flex !important; 
   justify-content: center !important;
 }
+
+.tag-margin{
+  margin-right: 10px;
+}
+
+.flexRow{
+  display: flex; 
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;
+  margin-top: 10px;
+}
+
+.flexRow-TD{
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+}
+  

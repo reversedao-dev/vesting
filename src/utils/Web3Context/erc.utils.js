@@ -35,7 +35,7 @@ async function switchNetwork(chainId) {
       method: "wallet_switchEthereumChain",
       params: data,
     });
-    console.log("Switched network status", switchedNetwork);
+    // console.log("Switched network status", switchedNetwork);
     return switchedNetwork;
   } catch (switchError) {
     console.log("Error in switching polygon", switchError);
@@ -53,6 +53,19 @@ async function switchNetwork(chainId) {
     }
   }
 }
+
+const getTokenIcon = (token) => {
+  let imgScr = "reverseDao_green_icon.png";
+  switch (token) {
+    // case "MARS":
+    case "RADO":
+      imgScr = "reverseDao_circle_icon.png";
+      break;
+    default:
+      break;
+  }
+  return imgScr;
+};
 
 /* method to connect metamask
  * @returns {[string]} array of wallet address
@@ -138,6 +151,7 @@ const ERCUtils = {
   getSigner,
   getAddress,
   getChainId,
+  getTokenIcon,
   switchNetwork,
   connectWallet,
   initContract,

@@ -15,7 +15,7 @@ const Web3Provider = ({children}) => {
             });
     
             window.ethereum.on("chainChanged", async (_chainId) => {
-                console.log('ChainId change', _chainId)
+                console.log(`ChainId change to ${_chainId}`)
                 getCurrentChainId()
             });
     
@@ -53,7 +53,7 @@ useEffect(() => {
             let isConnected = await ERCUtils.connectWallet();
             console.log('isConnected to address:', isConnected)
             if (isConnected) {
-                console.log("setting provider to:", isConnected[0]);
+                // console.log("setting provider to:", isConnected[0]);
                 setProvider({'metamask@erc': isConnected[0]});
             }
             return isConnected

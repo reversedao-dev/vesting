@@ -1,17 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { CircularProgress } from "@material-ui/core";
+import { Container, Center } from "@chakra-ui/layout";
 
-
-export default function MetamaskLoadingScreen  (children, compoBuffering, msg='loading...') {
+export default function MetamaskLoadingScreen (compoBuffering, msg='loading...') {
         return (
-            compoBuffering ?
-            <Fragment>
-                <div style={{height: '100vh'}}>
-                    <div><CircularProgress/></div>
-                    <div>{msg}</div>
-                </div>
-            </Fragment>
-            :
-            children
+            compoBuffering &&
+                <Container height="100vh">
+                    <Center>
+                        <div><CircularProgress/></div>
+                    </Center>
+                </Container>
         )
 }
