@@ -115,7 +115,7 @@ function App() {
         </Center>
         ) : (
           <Flex flexGrow={1}>
-            {provider.length > 0 && network == REQUIRED_CHAIN_ID && (
+            {provider.length > 0 && network === Number(REQUIRED_CHAIN_ID) && (
               <VestingInterface
                   provider={provider}
                   network={network}
