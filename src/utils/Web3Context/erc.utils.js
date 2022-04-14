@@ -72,16 +72,16 @@ const getTokenIcon = (token) => {
  */
 function connectWallet() {
   try {
-    if (window.ethereum.isMetaMask) {
+    if (window.ethereum?.isMetaMask) {
       // console.log("Connecting to wallet - (Metamask has already installed)", window.ethereum.isMetaMask)
       let resp = window.ethereum.request({
         method: "eth_requestAccounts",
         params: [{ eth_accounts: {} }],
       });
       return resp;
-    } else {
+    } else if (!window.ethereum?.isMetaMask) {
       installMetamask();
-    }
+    } 
   } catch (err) {
     console.log("Error in connecting wallet", err);
   }

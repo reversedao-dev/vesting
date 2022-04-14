@@ -26,7 +26,7 @@ const Web3Provider = ({children}) => {
             });
     
         }
-        return () => window?.ethereum.removeAllListeners();
+        return () => window.ethereum?.removeAllListeners();
        
 }, [])
 

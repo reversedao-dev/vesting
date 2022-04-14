@@ -72,6 +72,14 @@ function App() {
     }
   };
 
+  const connectToMetaMask = () => {
+    try{
+      connectWallet()
+    } catch(err){
+      console.log('Error in connecting wallet', err)
+    }
+  }
+
   return (
   <Container height="100vh">
       <Flex direction="column" height="100%" width="100%">
@@ -80,12 +88,12 @@ function App() {
               Claim Token Page
             </Heading>
         </Center>
-        
+
         <Center pt={5} pb={4}>
           <Box mr={2}>Your Wallet:</Box>
           {!provider.length > 0 ? (
             <div>
-              <Button colorScheme="blue" onClick={connectWallet}>
+              <Button colorScheme="blue" onClick={connectToMetaMask}>
                 Connect Metamask
               </Button>
             </div>
