@@ -79,7 +79,7 @@ function connectWallet() {
         params: [{ eth_accounts: {} }],
       });
       return resp;
-    } else if (!window.ethereum?.isMetaMask) {
+    } else if (typeof window.ethereum?.isMetaMask == undefined || !window.ethereum?.isMetaMask ) {
       installMetamask();
     } 
   } catch (err) {
